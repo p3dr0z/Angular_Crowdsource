@@ -1,0 +1,21 @@
+<div class="card" style="width: 50%; margin: 20px auto 0 auto; padding: 15px;">
+    <div class="card">
+        <img src="https://cdn2.iconfinder.com/data/icons/babysitting-services-innovicons-color/128/area-map-pointer-location-512.png" width="500" height="350" style="margin: 0 auto 0 auto;">
+    </div>
+    <br>
+    <div class="card" style="text-align: center;" *ngIf='place'>
+        <h1>{{ place.name }}</h1>
+        <br>
+        <h3><b>Categoria: </b>{{ place.category }}</h3>
+        <br>
+        <h3><b>Morada: </b>{{ place.address }}</h3>
+    </div>
+    <br>
+    <br>
+    <div *ngIf='place'>
+    <p style="position: absolute; bottom: 5px;"><button class="btn btn-danger" style="width: 50px;" (click)="dislikePlace()"></button>  {{ place.usersDisliked?.length }}</p>
+    <p style="position: absolute; bottom: 5px; left: 100px;">{{ place.usersLiked?.length }}  <button class="btn btn-success" style="width: 50px;" (click)="likePlace()"></button></p>
+</div> 
+<p style="margin:0 auto 0 auto" *ngIf="user">Criado por: {{ user.username }}</p>
+<button class="btn btn-light" style="width: 100px; position: absolute; right: 15px; bottom: 5px" (click)="inicioPage()">Voltar</button>
+</div>

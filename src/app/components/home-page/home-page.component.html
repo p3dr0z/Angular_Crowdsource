@@ -1,0 +1,98 @@
+<div class="card" style="width: 50%; margin: 20px auto 0 auto;">
+    <nav class="navbar navbar-light bg-light">
+        <button type="button" class="btn btn-light">Inicio</button>
+        <button type="button" class="btn btn-light" (click)="profilePage()">Perfil</button>
+        <button type="button" class="btn btn-light" (click)="loginPage()">Logout</button> 
+      </nav>
+    <div class="card-body" style="text-align: center;">
+        <h4>Pesquise pelo nome de um local...</h4>
+        <br>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="searchInput" placeholder="Pesquise por um local..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+             <button type="button" class="btn btn-light" (click)="getPlacesByName()" style="border-color: #ced4da;">Pesquisar</button>
+            </div>
+          </div>
+        <h4>...ou por uma categoria</h4>
+        <br>
+        <div class="row" style="justify-content: center; text-align: left;">
+            <div class="form-check" style="margin-left: 20px;">
+                <div>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Restaurante">
+                        Restaurante
+                </div>
+                <div>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Shopping">
+                        Shopping
+                </div>
+            </div>
+            <div class="form-check" style="margin-left: 20px;">
+                <div>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Espaço de Lazer">
+                        Espaço de Lazer
+                </div>
+                <div>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Estádio">
+                        Estádio
+                </div>
+            </div>
+            <div class="form-check" style="margin-left: 20px;">
+                <div>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Educação">
+                        Educação
+                </div>
+                <div>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Outro">
+                        Outro
+                </div>
+         </div>
+        </div>
+        <br>
+        <button type="button" class="btn btn-light" (click)="getPlacesByCategory()" style="border-color: #ced4da;">Procura por categoria</button>
+        <br>
+        <br>
+
+        <div id="renderTable">
+
+        </div>
+
+            <table class="table" style="display: table;" id="categoryTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Votes</th>
+                    <th scope="col">Página</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let p of placesByCategory">
+                    <td>{{p.name}}</td>
+                    <td>{{p.category}}</td>
+                    <th scope="row">{{p.usersLiked.length - p.usersDisliked.length}}</th>
+                    <td><button class="btn btn-light" (click)="placePage(p._id)">Ver</button></td>
+                  </tr>
+                </tbody>
+              </table>
+
+          <table class="table" style="display: none;" id="nameTable">
+              <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Categoria</th>
+                  <th scope="col">Votes</th>
+                  <th scope="col">Página</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let p of placesByName">
+                  <td>{{p.name}}</td>
+                  <td>{{p.category}}</td>
+                  <th scope="row">{{p.usersLiked.length - p.usersDisliked.length}}</th>
+                  <td><button class="btn btn-light" (click)="placePage(p._id)">Ver</button></td>
+                </tr>
+              </tbody>
+            </table>
+    </div>
+
+</div>

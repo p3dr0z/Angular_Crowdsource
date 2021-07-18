@@ -1,0 +1,25 @@
+<div class="card" style="width: 50%; margin: 20px auto 0 auto;">
+    <div class="card-body">
+<h2>Adicionar Local</h2>
+<br>
+<form>
+    <input type="text" class="form-control" name="name" [(ngModel)]="name" placeholder="Nome do local">
+    <br>
+    <select name="category" [(ngModel)]="category"
+        style="padding: .375rem 2.25rem .375rem .75rem; width: 100%; border: 1px solid #ced4da; border-radius: .25rem; color: #212529;">
+        <option value="Restaurante">Restaurante</option>
+        <option value="Estádio">Estádio</option>
+        <option value="Espaço de Lazer">Espaço de Lazer</option>
+        <option value="Educação">Educação</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Outro">Outro</option>
+    </select>
+    <br>
+    <br>
+    <input type="text" class="form-control" name="address" [(ngModel)]="address" placeholder="Morada">
+    <br>
+    <button type="submit" class="btn btn-primary" (click)="addPlace()">Adicionar</button>
+    <button type="button" class="btn btn-light" (click)="profilePage()">Voltar</button>
+</form>
+</div>
+</div>
